@@ -19,7 +19,7 @@ jobs:
         working-directory: DumpApi
 
       - name: Build Docker image
-        run: docker build -t dumbapi:latest .
+        run: docker build -t dumpapi:latest .
 
       - name: Show images
         run: docker images
