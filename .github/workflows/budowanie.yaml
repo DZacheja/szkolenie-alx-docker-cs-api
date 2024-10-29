@@ -16,7 +16,7 @@ jobs:
 
       - name: Build DumpApi App
         run: dotnet build --configuration Release
-        working-directory: DumbApi
+        working-directory: DumpApi
 
       - name: Build Docker image
         run: docker build -t dumbapi:latest .
@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dumbapi
-          path: DumbApi/bin/Release/net8.0
+          path: DumpApi/bin/Release/net8.0
