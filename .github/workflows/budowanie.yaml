@@ -16,7 +16,7 @@ jobs:
 
       - name: Build DumpApi App
         run: dotnet build --configuration Release
-        working-directory: DumbAPI
+        working-directory: DumbApi
 
       - name: Build Docker image
         run: docker build -t dumbapi:latest .
