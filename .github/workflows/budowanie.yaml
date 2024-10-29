@@ -1,0 +1,31 @@
+---
+name: Zbuduj projekt
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+
+      - name: Build DumpApi App
+        run: dotnet build --configuration Release
+        working-directory: DumbAPI
+
+      - name: Build Docker image
+        run: docker build -t dumbapi:latest .
+
+      - name: Show images
+        run: docker images
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dumbapi
+          path: DumbApi/bin/Release/net8.0
